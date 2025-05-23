@@ -121,7 +121,7 @@ which nginx
 
 ---
 
-### 3. Verify Your `duckdns-hook.sh` Script
+### 2. Verify Your `duckdns-hook.sh` Script
 
 Make sure your DNS hook script includes the correct DuckDNS token.
 
