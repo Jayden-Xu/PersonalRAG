@@ -146,3 +146,78 @@ Once the certificate is issued, it will be saved under:
 ```
 
 These certificate files will be referenced in the next step for NGINX configuration.
+
+---
+
+## Step 4: Configure NGINX for Reverse Proxy and HTTPS
+
+Once your SSL certificate is ready, configure NGINX to forward external HTTPS traffic to your local RAGFlow service.
+
+---
+
+### Edit the NGINX Config File
+
+Open the NGINX configuration file:
+
+```bash
+sudo nano /opt/homebrew/etc/nginx/nginx.conf
+```
+
+Ensure the following settings are in place:
+
+#### `server` block:
+
+```nginx
+server {
+    listen 81 ssl;
+    server_name your_domain.duckdns.org;
+
+    ssl_certificate /etc/letsencrypt/live/your_domain.duckdns.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/your_domain.duckdns.org/privkey.pem;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+
+    location / {
+        proxy_pass http://127.0.0.1:80;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+> Replace `your_domain.duckdns.org` with your actual DuckDNS domain.  
+> Ensure the `listen` port (e.g. `81`) matches the **internal port** configured in your router's port forwarding settings.
+
+---
+
+### Start NGINX and Verify
+
+Start NGINX:
+
+```bash
+sudo nginx
+```
+
+Check if NGINX is listening correctly on port `81`:
+
+```bash
+sudo lsof -i :81
+```
+
+If no errors are shown and the port is in use, everything is set up correctly.
+
+---
+
+### Test the Setup
+
+Open your browser and visit:
+
+```
+https://your_domain.duckdns.org:5000
+```
+
+You should see the RAGFlow interface securely served over HTTPS.
