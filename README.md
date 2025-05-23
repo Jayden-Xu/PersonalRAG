@@ -1,21 +1,21 @@
-# 🧾 RAG System Deployment Guide (Based on RAGFlow)
+# RAG System Deployment Guide (Based on RAGFlow)
 
 This repository provides a **step-by-step guide** to deploy a **Retrieval-Augmented Generation (RAG)** system using the open-source engine [RAGFlow](https://github.com/infiniflow/ragflow).
 
-## ⚠️ Caution: Architecture Compatibility
+## Caution: Architecture Compatibility
 
 The server setup in this repository is based on the **ARM64** architecture (e.g., Apple Silicon Mac).
 
 > If you are using an **x86-based** machine (e.g., Intel or AMD CPUs), please refer to the official [RAGFlow documentation](https://github.com/infiniflow/ragflow) for the appropriate Docker configuration, as the Dockerfiles may differ.
 
-## 📥 Clone the Repository
+## Clone the Repository
 
 ```bash
 git clone https://github.com/Jayden-Xu/RAG
 cd RAG
 ```
 
-## 🚀 Step 1: Host RAGFlow Locally
+## Step 1: Host RAGFlow Locally
 
 ```bash
 cd docker
