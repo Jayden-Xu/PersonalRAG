@@ -98,28 +98,24 @@ which certbot
 which nginx
 ```
 
-If Certbot is not installed, install it using:
+>If Certbot is not installed, install it using:
 
-```bash
+>```bash
 brew install certbot
 ```
 
----
+>After installation, run the following command to generate your certificate:
 
-### 2. Request an SSL Certificate with Certbot
-
-After installation, run the following command to generate your certificate:
-
-```bash
+>```bash
 sudo certbot certonly --manual \
   --preferred-challenges dns \
   --manual-auth-hook ~/duckdns-hook.sh \
   -d your_domain.duckdns.org
 ```
 
-> 🔁 Replace `your_domain` with your actual DuckDNS subdomain.
+> Replace `your_domain` with your actual DuckDNS subdomain.
 
-Follow the instructions shown in the terminal, and choose the options as prompted.
+>Follow the instructions shown in the terminal, and choose the options as prompted.
 
 ---
 
