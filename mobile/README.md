@@ -17,7 +17,7 @@ As a basic demonstration, create a html file within the directory and refer to `
 Grant read and execute permissions to the directory and its files:
 
 ```bash
-chmod -R o+rX /Users/lv/nginx-public
+chmod -R o+rX /Users/your_name/nginx-public
 ```
 
 
