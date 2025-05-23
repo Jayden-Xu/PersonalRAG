@@ -1,6 +1,6 @@
 ## Mobile Compatibility
 
-Unfortunately, the default user interface (UI) of RAGFlow is not optimized for mobile devices, making it challenging to use on smaller screens. To ensure that mobile users can still interact with the chat functionality, we have devised a solution.
+Unfortunately, the default user interface (UI) of RAGFlow is not optimized for mobile devices, making it challenging to use on smaller screens. 
 
 A straightforward approach is to utilize the **embedding feature** provided by RAGFlow, which allows us to integrate the chat interface into a separate, mobile-optimized URL.
 
@@ -12,7 +12,7 @@ A straightforward approach is to utilize the **embedding feature** provided by R
 mkdir -p /Users/your_name/nginx-public/rag-mobile-ui
 ```
 
-As a basic demonstration, create a html file within the directory and refer to `index.html`, which will house the mobile-friendly chat interface.
+As a basic demonstration, create a html file within the directory and refer to `index.html`, which will house a very simple mobile-friendly chat interface. It utilizes the `iframe` code, which can be found in the RAGFlow chat section by hovering over and editing any chat assistant.
 
 Grant read and execute permissions to the directory and its files:
 
@@ -34,9 +34,9 @@ Within the `server` block, add the following configuration to serve the mobile U
 
 ```nginx
 location /mobile/ {
-           alias  /Users/your_name/nginx-public/rag-mobile-ui/;
-           index  index.html;
-        }
+    alias  /Users/your_name/nginx-public/rag-mobile-ui/;
+    index  index.html;
+}
 ```
 
 After making the necessary changes, restart NGINX to apply the configuration:
