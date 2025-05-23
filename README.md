@@ -82,3 +82,71 @@ Click the **Edit** button and ensure the following settings are in place:
 This setup ensures that **external traffic** to your DuckDNS domain is correctly **routed to your machine** where RAGFlow is running.
 
 ---
+
+## Step 3: Use Let's Encrypt to Enable HTTPS
+
+To secure your domain with HTTPS, you'll use **Let's Encrypt** via **Certbot** and a DNS challenge script.
+
+---
+
+### 1. Check if Certbot and Nginx are installed
+
+Run the following commands:
+
+```bash
+which certbot
+which nginx
+```
+
+If Certbot is not installed, install it using:
+
+```bash
+brew install certbot
+```
+
+---
+
+### 2. Request an SSL Certificate with Certbot
+
+After installation, run the following command to generate your certificate:
+
+```bash
+sudo certbot certonly --manual \
+  --preferred-challenges dns \
+  --manual-auth-hook ~/duckdns-hook.sh \
+  -d your_domain.duckdns.org
+```
+
+> 🔁 Replace `your_domain` with your actual DuckDNS subdomain.
+
+Follow the instructions shown in the terminal, and choose the options as prompted.
+
+---
+
+### 3. Verify Your `duckdns-hook.sh` Script
+
+Make sure your DNS hook script includes the correct DuckDNS token.
+
+Open the script to edit:
+
+```bash
+nano ~/duckdns-hook.sh
+```
+
+Ensure it contains:
+
+```bash
+token=<your-duckdns-token>
+```
+
+This script will automatically update the DNS TXT record for validation.
+
+---
+
+Once the certificate is issued, it will be saved under:
+
+```
+/etc/letsencrypt/live/your_domain.duckdns.org/
+```
+
+These certificate files will be referenced in the next step for NGINX configuration.
