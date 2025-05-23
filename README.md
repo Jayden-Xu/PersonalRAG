@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # RAG System Deployment Guide
+=======
+# RAG System Deployment Guide (Based on RAGFlow)
+>>>>>>> 3cf5ed1 (update readme)
 
 This repository provides a **step-by-step guide** to deploy a **Retrieval-Augmented Generation (RAG)** system using the open-source engine [RAGFlow](https://github.com/infiniflow/ragflow).
 
@@ -35,9 +39,50 @@ https://127.0.0.1
 
 You should be redirected to the **RAGFlow frontend**.
 
-### What’s Next?
+### What’s Next? *(to be explained in detail in later parts)*
 
 1. Add your **model APIs** through the interface.
 2. Upload your **custom knowledge base**.
 3. Start chatting with your local RAG system!
 
+---
+
+## Step 2: Host on a Public Domain and Allow External Access
+
+### 1. Set up a DuckDNS Domain
+
+Go to [DuckDNS](https://www.duckdns.org/) and log in or register. Create a subdomain of your choice.
+
+Then retrieve your **public IP address** using:
+
+```bash
+curl ifconfig.me
+```
+
+Update the **Current IP** on DuckDNS with the result above.  
+A **token** will be generated — keep it safe, as it will be used later with Let's Encrypt for SSL certification.
+
+---
+
+### 2. Configure Port Mapping on the Router
+
+Log in to your router admin panel (e.g., `https://192.168.110.1`) and navigate to:
+
+```
+Devices → Manage → Config → Advanced → Port Mapping
+```
+
+Click the **Edit** button and ensure the following settings are in place:
+
+- **External Port**: `5000`  
+  → This is the port through which your DuckDNS domain (e.g., `yourdomain.duckdns.org:5000`) will be accessed from the internet.
+
+- **Internal Port**: `81`  
+  → The port on your local machine (e.g., Mac) that the router will forward requests to.
+
+- **Internal IP Address**: Your local machine’s IP address (e.g., `192.168.110.12`)  
+  → This must be the **internal IP** of the machine hosting RAGFlow.
+
+This setup ensures that **external traffic** to your DuckDNS domain is correctly **routed to your machine** where RAGFlow is running.
+
+---
