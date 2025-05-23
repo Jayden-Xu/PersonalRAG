@@ -107,11 +107,11 @@ which nginx
 >After installation, run the following command to generate your certificate:
 
 >```bash
-sudo certbot certonly --manual \
-  --preferred-challenges dns \
-  --manual-auth-hook ~/duckdns-hook.sh \
-  -d your_domain.duckdns.org
-```
+>sudo certbot certonly --manual \
+>  --preferred-challenges dns \
+>  --manual-auth-hook ~/duckdns-hook.sh \
+>  -d your_domain.duckdns.org
+>```
 
 > Replace `your_domain` with your actual DuckDNS subdomain.
 
