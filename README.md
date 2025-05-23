@@ -1,6 +1,6 @@
 # RAG System Deployment Guide
 
-This repository provides a **step-by-step guide** to deploy a **Retrieval-Augmented Generation (RAG)** system using the open-source engine [RAGFlow](https://github.com/infiniflow/ragflow).
+This repository provides a **step-by-step guide** to deploy a **Retrieval-Augmented Generation (RAG)** system using the open-source engine [RAGFlow](https://github.com/infiniflow/ragflow). This work is part of my internship experience as a **GenAI Engineer**.
 
 ## Caution: Architecture Compatibility
 
