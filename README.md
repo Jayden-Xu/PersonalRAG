@@ -8,6 +8,8 @@ The server setup in this repository is based on the **ARM64** architecture (e.g.
 
 > If you are using an **x86-based** machine (e.g., Intel or AMD CPUs), please refer to the official [RAGFlow documentation](https://github.com/infiniflow/ragflow) for the appropriate Docker configuration, as the Dockerfiles may differ.
 
+> You may find the website hard to use on mobile devices. Please refer to the `mobile` folder for more information.
+
 ## Clone the Repository
 
 ```bash

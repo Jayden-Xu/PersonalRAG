@@ -1,5 +1,49 @@
 ## Mobile Compatibility
 
-Unfortunately, the default UI of RAGFlow is not optimized for mobile devices, making it difficult to use on smaller screens. To ensure that mobile users can still access the chat functionality, we need to provide a solution.
+Unfortunately, the default user interface (UI) of RAGFlow is not optimized for mobile devices, making it challenging to use on smaller screens. To ensure that mobile users can still interact with the chat functionality, we have devised a solution.
 
-A simple solution is to use the **embedding feature** provided by RAGFlow, which allows us to integrate the chat interface into a separate URL, making it more mobile-friendly.
+A straightforward approach is to utilize the **embedding feature** provided by RAGFlow, which allows us to integrate the chat interface into a separate, mobile-optimized URL.
+
+### Step 1: Add Web Files
+
+1. First, create a new directory to store the web files:
+
+```bash
+mkdir -p /Users/your_name/nginx-public/rag-mobile-ui
+```
+
+As a basic demonstration, create a html file within the directory and refer to `index.html`, which will house the mobile-friendly chat interface.
+
+Grant read and execute permissions to the directory and its files:
+
+```bash
+chmod -R o+rX /Users/lv/nginx-public
+```
+
+
+
+### Step 2: Reconfigure NGINX
+
+Open the NGINX configuration file for editing:
+
+```bash
+sudo nano /opt/homebrew/etc/nginx/nginx.conf
+```
+
+Within the `server` block, add the following configuration to serve the mobile UI:
+
+```nginx
+location /mobile/ {
+           alias  /Users/your_name/nginx-public/rag-mobile-ui/;
+           index  index.html;
+        }
+```
+
+After making the necessary changes, restart NGINX to apply the configuration:
+
+```bash
+sudo nginx -s reload
+```
+
+You should now be able to access the mobile-optimized chat interface by visiting:
+```https://your_domain.duckdns.org:5000/mobile/```. Start interacting with the RAGFlow system via the mobile-friendly chat interface.
