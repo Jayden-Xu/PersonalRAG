@@ -101,8 +101,8 @@ which nginx
 >If Certbot is not installed, install it using:
 
 >```bash
-brew install certbot
-```
+>brew install certbot
+>```
 
 >After installation, run the following command to generate your certificate:
 
