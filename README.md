@@ -223,3 +223,5 @@ https://your_domain.duckdns.org:5000
 ```
 
 You should see the RAGFlow interface securely served over HTTPS.
+<img width="1465" alt="image" src="https://github.com/user-attachments/assets/81d1076f-7d0a-4ae8-9da0-0dcbf70becc5" />
+
