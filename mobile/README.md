@@ -3,6 +3,7 @@
 Unfortunately, the default user interface (UI) of RAGFlow is not optimized for mobile devices, making it challenging to use on smaller screens. 
 
 A straightforward approach is to utilize the **embedding feature** provided by RAGFlow, which allows us to integrate the chat interface into a separate, mobile-optimized URL.
+![image](https://github.com/user-attachments/assets/10d857aa-ccb5-455e-816e-880b1d4700b8)
 
 ### Step 1: Add Web Files
 
